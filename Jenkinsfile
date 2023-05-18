@@ -1,10 +1,10 @@
 pipeline {
     agent any    
     stages {
-        stage('Hello') {
+        stage('package') {
             steps {
-                sh 'sh test.sh'
-                echo env.BRANCH_NAME
+                sh 'zip -r function.zip lambda_function.py'
+                archiveArtifacts artifacts: 'function.zip', fingerprint: true
             }
         }
     }
