@@ -9,7 +9,7 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                echo 'lambda deploy stage'
+                echo ' deploy stage'
             }
         }
     }
