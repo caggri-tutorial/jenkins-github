@@ -1,13 +1,12 @@
 pipeline {
-    agent any    
-    stages {
+    agent any  
     parameters {
         choice(
             choices: ['Proceed' , 'Yield'],
             description: 'Continiue process',
             name: 'ACTION')
-    }
-
+    }  
+    stages {
         stage('package') {
             steps {
                 sh 'zip -r function.zip lambda_function.py'
