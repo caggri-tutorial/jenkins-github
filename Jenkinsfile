@@ -9,7 +9,7 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                echo 'a sd deploy stage'
+                echo 'Lambda deploy stage - test branch'
             }
         }
     }
