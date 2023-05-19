@@ -7,14 +7,20 @@ pipeline {
             name: 'ACTION')
     }  
     stages {
-        stage('deploy') {
-            when {
-                // Only say hello if a "greeting" is requested
-                expression { params.ACTION == 'Proceed' }
-            }
+        stage('package') {
             steps {
                 sh 'zip -r function.zip lambda_function.py'
                 archiveArtifacts artifacts: 'function.zip', fingerprint: true
+            }
+            
+        }
+        stage('deploy') {
+            when {
+
+                expression { params.ACTION == 'Proceed' }
+            }
+            steps {
+                echo 'deploy'
             }
             
         }
